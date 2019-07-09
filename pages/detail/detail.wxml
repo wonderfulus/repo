@@ -1,0 +1,49 @@
+<view class='container1'>
+  <view class='whole'>
+    <view class='title'>{{title}}</view>
+    <view class='author' style='font-size:25rpx;color:#D4D4D4;text-align:center'>作者：{{author}}</view>
+    <view class='hr'></view>
+
+    <block wx:if="{{data_type_1=='text'}}">
+      <view class='content1'>{{text_1}}</view>
+    </block>
+    <block wx:if="{{data_type_1=='img'}}">
+      <view class='picture'>
+        <image src='{{text_1}}' style='width:500rpx;height:350rpx;margin-top:8rpx;'></image>
+      </view>
+    </block>
+
+    <block wx:if="{{data_type_2=='text'}}">
+      <view class='content2'>{{text_2}}</view>
+    </block>
+    <block wx:if="{{data_type_2=='img'}}">
+      <view class='picture'>
+        <image src='{{text_2}}' style='width:500rpx;height:350rpx;margin-top:8rpx;'></image>
+      </view>
+    </block>
+
+    <view class='hr'></view>
+
+  </view>
+  <view style='font-size:25rpx;color:#D4D4D4;text-align:center'>来源声明：数据取自网络API，如有侵权请联系删除</view>
+  
+  <view class="myRecode">
+      <view class="recode" bindtouchstart='recodeClick' bindtouchend='recodeEnd' style='background: {{color_mic}};'>
+        <image class='img' src='/pic/voice_icon_speech_sound_1.png'></image>
+        <view class="ripple"></view>
+        <view class="ripple" animation="{{animationData1}}"></view>
+        <view class="ripple" animation="{{animationData2}}"></view>
+      </view>
+    </view>
+
+
+  <view class='tip'>
+    <view>提示&语音识别指令:</view>
+    <view>{{command_1}} {{command_2}}</view>
+    <view></view>
+  </view>
+  <view class='hr'></view>
+  <view class='return_tip'>状态：{{state}}</view>
+  <view class='return_tip'>语音识别结果：{{outcome}}</view>
+
+</view>

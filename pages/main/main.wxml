@@ -1,0 +1,52 @@
+<view class="swiper-tab">
+  <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="头条" bindtap="switchNav" style='color: {{color.toutiao}}'>头条</view>
+  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="社会" bindtap="switchNav" style='color: {{color.shehui}}'>社会</view>
+  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="娱乐" bindtap="switchNav" style='color: {{color.yule}}'>娱乐</view>
+  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="体育" bindtap="switchNav" style='color: {{color.tiyu}}'>体育</view>
+  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="科技" bindtap="switchNav" style='color: {{color.keji}}'>科技</view>
+  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="军事" bindtap="switchNav" style='color: {{color.junshi}}'>军事</view>
+</view>
+
+<view class='content'>
+  <view class='list'>
+    <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" class='cout'>
+      <view class='item1' bindtap='_seeDetail' id='0' data-url='{{itemName.url}}'>
+      <view class='thumbnail'>
+        <image src='{{itemName.picture}}' style='width:200rpx;height:170rpx;margin-top:35rpx;'></image>
+      </view>
+        <view class='desc'>
+          <view class='title'>{{idx+1}}.{{itemName.title}}</view>
+          <view class='count'>
+            <view class='sort'>{{itemName.source}}</view>
+            <view class='author'>{{itemName.author_name}}</view>
+          </view>
+        </view>
+      </view>
+    <view class='hr'></view>
+    </view>
+    <view style='margin-top: 40rpx;font-size:30rpx;color: #36648B;'>TIP:待下方提示灯为绿色时开始录音！(时间间隔5秒)</view>
+
+      
+
+    <view class="myRecode">
+      <view class="recode" bindtouchstart='recodeClick' bindtouchend='recodeEnd' style='background: {{color_mic}};'>
+        <image class='img' src='/pic/voice_icon_speech_sound_1.png'></image>
+        <view class="ripple"></view>
+        <view class="ripple" animation="{{animationData1}}"></view>
+        <view class="ripple" animation="{{animationData2}}"></view>
+      </view>
+    </view>
+
+
+    <view class='text_bottom'>
+      <view>语音命令：</view>
+      <view><text class='text_b'>{{command_1}}</text></view>
+      <view><text class='text_b'>{{command_2}}</text></view>
+      <view><text class='text_b'>{{command_3}}</text></view>
+    </view>
+    
+    <view class='hr'></view>
+    <view class='return_tip'>状态：{{state}}</view>
+    <view class='return_tip'>语音识别结果：{{outcome}}</view>
+  </view>
+</view>
